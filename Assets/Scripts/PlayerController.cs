@@ -129,9 +129,10 @@ public class PlayerController : MonoBehaviour
 
     public void Respawn()
     {
-        transform.rotation = Quaternion.identity;
+        rb.angularVelocity = 0.0f;
         newVelocity.Set(0.0f, 0.0f);
         rb.velocity = newVelocity;
+        transform.rotation = Quaternion.identity; 
         transform.position = respawnPoint;
     }
 }
