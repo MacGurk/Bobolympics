@@ -63,6 +63,8 @@ public class GameController : MonoBehaviour
         else
         {
             playerController.Respawn();
+            var bobbers = GameObject.FindGameObjectsWithTag("Bobber");
+            Destroy(bobbers[Random.Range(0, bobbers.Length)]);
         }
     }
 }

@@ -135,4 +135,9 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.identity; 
         transform.position = respawnPoint;
     }
+
+    public void DestroyBobber(int number)
+    {
+
+    }
 }
