@@ -15,8 +15,11 @@ public class GameController : MonoBehaviour
     private float respawnWait;
 
     private int lifeCount;
+    private bool gameOver = false;
 
     private PlayerController playerController;
+
+    public GameObject pauseMenuUI;
 
 
     void Start()
@@ -41,14 +44,18 @@ public class GameController : MonoBehaviour
 
     private void GameOver()
     {
+        gameOver = true;
         gameOverText.text = "Game Over!";
         Time.timeScale = 0;
+        pauseMenuUI.SetActive(true);
     }
 
     public void Finish()
     {
+        gameOver = true;
         gameFinishText.text = "Finish!";
         Time.timeScale = 0;
+        pauseMenuUI.SetActive(true);
     }
 
     public void LoseLife()
@@ -66,5 +73,10 @@ public class GameController : MonoBehaviour
             var bobbers = GameObject.FindGameObjectsWithTag("Bobber");
             Destroy(bobbers[Random.Range(0, bobbers.Length)]);
         }
+    }
+
+    public bool IsGameOver()
+    {
+        return gameOver;
     }
 }
